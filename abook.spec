@@ -11,7 +11,6 @@ Group:		Networking/Mail
 BuildRequires:	ncurses-devel readline-devel
 URL:		http://abook.sourceforge.net/
 Source:		http://prdownloads.sourceforge.net/abook/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Abook is a text-based addressbook program designed for use with the mutt 
