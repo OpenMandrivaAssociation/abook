@@ -1,7 +1,7 @@
 %define name	abook
 %define version	0.6.0
 %define beta	pre2
-%define release	%mkrel 0.%{beta}.1
+%define release	%mkrel 0.%{beta}.2
 
 Name:		%{name}
 Summary:	Text-based addressbook program for mutt
@@ -9,9 +9,11 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Networking/Mail
-BuildRequires:	ncurses-devel readline-devel
 URL:		http://abook.sourceforge.net/
 Source:		http://abook.sourceforge.net/devel/%{name}-%{version}%{beta}.tar.gz
+Patch:      http://abook.sourceforge.net/patches/abook_vcard_import.patch
+BuildRequires:	readline-devel
+BuildRequires:	ncurses-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -20,6 +22,7 @@ mail client.
 
 %prep
 %setup -q -n %{name}-%{version}%{beta}
+%patch -p 1
 
 %build
 %configure2_5x
