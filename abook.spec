@@ -1,6 +1,7 @@
 %define name	abook
-%define version	0.5.6
-%define release	%mkrel 1
+%define version	0.6.0
+%define beta	pre2
+%define release	%mkrel 0.%{beta}.1
 
 Name:		%{name}
 Summary:	Text-based addressbook program for mutt
@@ -10,18 +11,18 @@ License:	GPL
 Group:		Networking/Mail
 BuildRequires:	ncurses-devel readline-devel
 URL:		http://abook.sourceforge.net/
-Source:		http://prdownloads.sourceforge.net/abook/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+Source:		http://abook.sourceforge.net/devel/%{name}-%{version}%{beta}.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Abook is a text-based addressbook program designed for use with the mutt 
 mail client.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{beta}
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
@@ -32,7 +33,7 @@ mail client.
 chmod 644 AUTHORS BUGS COPYING ChangeLog NEWS README THANKS TODO
 
 %clean
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -f %name.lang
 %defattr(-,root,root)
