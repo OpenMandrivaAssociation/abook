@@ -1,7 +1,7 @@
 %define name	abook
 %define version	0.6.0
 %define beta	pre2
-%define release	%mkrel 0.%{beta}.2
+%define release	%mkrel 0.%{beta}.3
 
 Name:		%{name}
 Summary:	Text-based addressbook program for mutt
