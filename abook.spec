@@ -1,7 +1,7 @@
 %define name	abook
 %define version	0.6.0
 %define beta	pre2
-%define release	%mkrel 0.%{beta}.5
+%define release	%mkrel 0.%{beta}.6
 
 Name:		%{name}
 Summary:	Text-based addressbook program for mutt
@@ -13,8 +13,9 @@ URL:		http://abook.sourceforge.net/
 Source:		http://abook.sourceforge.net/devel/%{name}-%{version}%{beta}.tar.gz
 Patch:      http://abook.sourceforge.net/patches/abook_vcard_import.patch
 BuildRequires:	readline-devel
-BuildRequires:	ncurses-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRequires:	pkgconfig(ncurses)
+BuildRequires:	gcc-c++, gcc, gcc-cpp
+
 
 %description
 Abook is a text-based addressbook program designed for use with the mutt 
@@ -25,7 +26,9 @@ mail client.
 %patch -p 1
 
 %build
-%configure2_5x
+export CC=gcc
+export CXX=g++
+%configure
 %make
 
 %install
@@ -35,15 +38,12 @@ mail client.
 
 chmod 644 AUTHORS BUGS COPYING ChangeLog NEWS README THANKS TODO
 
-%clean
-rm -rf %{buildroot}
 
 %files -f %name.lang
-%defattr(-,root,root)
 %doc AUTHORS BUGS COPYING ChangeLog NEWS README THANKS TODO
 %{_bindir}/abook
 %{_mandir}/man*/abook*.*
-#%{_mandir}/man5/abook.conf.5*
+
 
 
 
@@ -83,7 +83,7 @@ rm -rf %{buildroot}
 * Tue Mar 21 2006 Lenny Cartier <lenny@mandriva.com> 0.5.5-1mdk
 - 0.5.5
 
-* Mon Sep 26 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.5.4-1mdk
+* Mon Sep 26 2005 Nicolas LÃ©cureuil <neoclust@mandriva.org> 0.5.4-1mdk
 - New release 0.5.4
 
 * Thu May 12 2005 Olivier Thauvin <nanardon@mandriva.org> 0.5.3-2mdk
