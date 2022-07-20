@@ -1,0 +1,12 @@
+diff -up abook-git-6b6a47393127efedca5a75d2adbc70947d37dfa1/database.c.omv~ abook-git-6b6a47393127efedca5a75d2adbc70947d37dfa1/database.c
+--- abook-git-6b6a47393127efedca5a75d2adbc70947d37dfa1/database.c.omv~	2022-07-20 23:57:41.725838874 +0200
++++ abook-git-6b6a47393127efedca5a75d2adbc70947d37dfa1/database.c	2022-07-20 23:58:05.307952908 +0200
+@@ -859,7 +859,7 @@ item_merge(list_item dest, list_item src
+  */
+ 
+ /* quick lookup by "standard" field number */
+-inline int
++__attribute__((always_inline)) int
+ field_id(int i)
+ {
+ 	assert((i >= 0) && (i < ITEM_FIELDS));
