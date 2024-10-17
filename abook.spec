@@ -6,7 +6,7 @@ Version:	0.6.1
 Release:	1
 License:	GPL
 Group:		Networking/Mail
-URL:		http://abook.sourceforge.net/
+URL:		https://abook.sourceforge.net/
 Source:		https://sourceforge.net/code-snapshots/git/a/ab/abook/git.git/abook-git-%{git}.zip
 Patch0:		abook-compile.patch
 BuildRequires:	readline-devel
