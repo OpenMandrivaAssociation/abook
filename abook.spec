@@ -12,6 +12,7 @@ Patch0:		abook-compile.patch
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	autoconf make
+BuildRequires:	gettext
 BuildSystem:	autotools
 
 %description
