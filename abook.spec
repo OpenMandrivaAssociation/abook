@@ -13,6 +13,7 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	autoconf make
 BuildRequires:	gettext
+BuildRequires:	locales-extra-charsets
 BuildSystem:	autotools
 
 %description
