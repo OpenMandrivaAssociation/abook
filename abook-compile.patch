@@ -10,3 +10,14 @@ diff -up abook-git-6b6a47393127efedca5a75d2adbc70947d37dfa1/database.c.omv~ aboo
  field_id(int i)
  {
  	assert((i >= 0) && (i < ITEM_FIELDS));
+diff -up abook-0.6.2/database.c.omv~ abook-0.6.2/database.c
+--- abook-0.6.2/database.c.omv~	2025-11-01 22:01:42.065073324 +0100
++++ abook-0.6.2/database.c	2025-11-01 22:01:48.784334496 +0100
+@@ -12,6 +12,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <assert.h>
++#include <ctype.h>
+ #ifdef HAVE_CONFIG_H
+ #	include "config.h"
+ #endif

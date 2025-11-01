@@ -1,8 +1,8 @@
 Name:		abook
 Summary:	Text-based addressbook program for mutt
-Version:	0.6.1
-# This matches the 0.6.1 tag
-%define git 6b6a47393127efedca5a75d2adbc70947d37dfa1
+Version:	0.6.2
+# This matches the 0.6.2 tag
+%define git a243d4a18a64f4ee188191a797b34f60d4ff852f
 Release:	1
 License:	GPL
 Group:		Networking/Mail
@@ -12,22 +12,15 @@ Patch0:		abook-compile.patch
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	autoconf make
+BuildSystem:	autotools
 
 %description
 Abook is a text-based addressbook program designed for use with the mutt 
 mail client.
 
-%prep
-%autosetup -p1 -n %{name}-git-%{git}
-%configure
+%install -a
+%find_lang %{name}
 
-%build
-%make_build
-
-%install
-%make_install
-
-%find_lang %name
 chmod 644 AUTHORS BUGS COPYING ChangeLog NEWS README THANKS TODO
 
 %files -f %name.lang
